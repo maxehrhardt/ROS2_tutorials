@@ -1,6 +1,7 @@
 # Python
 
 ## Launch files
+### Implementation
 1. In your package create a `/launch` folder
 2. In this folder create a `name.launch.py` file
 3. `example.launch.py`:
@@ -48,6 +49,23 @@ source install/setup.zsh
 ```
 ros2 launch example example.launch.py
 ```
+
+### Features
+Launch arguments can be declared with:
+```python
+from launch.actions import DeclareLaunchArgument
+...
+DeclareLaunchArgument(
+    'argument_name',
+    default_value='default',
+    description='Description of the argument'
+) 
+```
+The arguments of a launch file can be shown with:
+```
+ros2 launch --show-args package_name name.launch.py
+```
+
 ## Config files
 1. In your package create a `/config` folder
 2. In this folder create the file `config.yaml`:
